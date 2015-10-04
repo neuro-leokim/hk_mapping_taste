@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>한국경제 맛집101 시각화 컨텐츠</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+<style>
+  @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
+  body { margin:0; padding:0; font-family: 'Noto Sans', sans-serif;}
+  #container_map { width:100px; }
+  /*#d3map { position:absolute;  width:100%; height:380px; }*/ /* right */
+  #d3map { position:relative;  width:100%; height:720px; }
+  
+
+.info {
+  margin:0;
+  padding:0;
+  height:100px;
+  position:absolute;
+  /*position:relative;  right */
+
+  }
+.info div {
+  background:#fff;
+  border-radius:3px;
+ }
+ 
+ #infobox{
+   
+   position:absolute;
+   z-index:100001;
+   top:0px;
+   
+   
+   
+   /*position:relative;*/
+   /*display:inline-block;*/
+   background-color:#17316a;
+   opacity:0.8;
+   width:100%;
+   
+   padding-top:0;
+   text-align:left;
+   color:#fff;
+   font-size:20px;
+ }
+ 
+ 
+ #infobox_title{
+   
+   font-size:48px;
+   margin-left:10px;
+   padding-top:10px;
+ }
+ 
+ #infobox_name{
+    text-shadow: 2px 2px 2px #222;
+    margin-top:0px;
+    padding-top:30px;
+ }
+ 
+ 
+/* infobox의 메뉴 부분 */ 
+div.menu{
+   display: inline-block;
+   width:110px;
+   height: 30px;
+   line-height:30px;
+   vertical-align: middle;
+   /*background-color:#111;*/
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight:100;
+   
+   
+   border: 2px solid #fff;
+   border-radius:3px;
+   margin-left:10px;
+   
+   text-align:center;
+   font-size:15px;
+}
+/* menu 영역중 첫번째 영역만 */
+/*div.menu:nth-child(2){ background-color: aqua; margin-top:40px;} */
+
+
+/* infobox의 메뉴 부분 */ 
+div.infobox_item{
+   display: inline-block;
+   width:200px;
+   height: 30px;
+   line-height:20px;
+   vertical-align: middle;
+   
+   margin-left:20px;
+   margin-top:10px;
+   text-align:left;
+   font-size:18px;
+}
+/* menu 영역중 첫번째 영역만 */
+/*div.infobox_item:nth-child(2){ margin-top:10px;} */
+
+
+#infobox_img{
+  
+  position:absolute;
+  top:14%;
+  left:30%;
+  min-width:300px;
+  min-height:180px;
+  border: 2px solid #fff;
+  border-radius:3px;
+  z-index:100002;
+  
+  
+}
+.infobox_img{
+  width:100%;
+  opacity:0.7;
+  background-size:cover;
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+<div id='d3map'></div>
+<!--<div id='d3map_overlay'></div>-->
+
+
+
+<div id="infobox">
+  <div id="infobox_title"> 대한민국 명사의 맛집 101</div>
+  <div id="infobox_name"><div class="menu">명사</div><div id="infobox_item_name" class="infobox_item" >Jung Yumi</div></div>
+  <div id="infobox_group"><div class="menu">소속</div><div id="infobox_item_group" class="infobox_item">뉴로어소시에이츠</div></div>
+  <div id="infobox_shop"><div class="menu">추천 맛집</div><div id="infobox_item_shop" class="infobox_item">삼겹살 무한리필 왕리필</div></div>
+  <div id="infobox_address"><div class="menu">주소</div><div id="infobox_item_address" class="infobox_item">서울시 마포구 창전동 3-3</div></div>
+  <div id="infobox_phone"><div class="menu">연락처</div><div id="infobox_item_phone" class="infobox_item">02-5210-4740</div></div>
+  <br/>
+  <br/>
+</div>
+<div id="infobox_img"><img id="infobox_item_image" class="infobox_img" src="images/img_food_1.png"/></div>
+<script src="js/d3.min.js"></script>
+<script src="js/jquery-1.11.0.js"></script>
+<script src="js/leaflet.js"></script>
+<script src="js/neuroD3.map-0.1.js"></script>
+
+
+
+</body>
+</html>
